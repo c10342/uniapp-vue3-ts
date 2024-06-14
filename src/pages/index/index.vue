@@ -8,26 +8,15 @@
       thumbnail="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/unicloudlogo.png">
       <text>这是一个带头像和双标题的基础卡片，此示例展示了一个完整的卡片。</text>
     </uni-card>
+    <base-button></base-button>
   </view>
 </template>
 
 <script setup lang="ts">
-import request from '@/services/utils/request';
-
-// import { useUserStore } from '@/store';
-// import { ref } from 'vue'
-// const title = ref('Hello123123')
-
-// const userStore = useUserStore()
-
+ const {safeAreaInsets}=uni.getSystemInfoSync()
 const onClick = () => {
-  request.get('/topics', {
-    page: 1,
-    limit: 2
-  }).then(res => {
-    console.log('res', res);
-
-  })
+  console.log(safeAreaInsets);
+  
 }
 </script>
 
