@@ -2,9 +2,7 @@
   <view class="content">
     <image class="logo" src="/static/logo.png" />
     <view class="text-area">
-      <text class="title">{{ title }}</text>
-      <text class="title">{{ userStore.count }}</text>
-      <button @tap="userStore.increment()">点击</button>
+      <button @tap="onClick">点击</button>
     </view>
     <uni-card title="基础卡片" sub-title="副标题" extra="额外信息"
       thumbnail="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/unicloudlogo.png">
@@ -14,11 +12,23 @@
 </template>
 
 <script setup lang="ts">
-import { useUserStore } from '@/store';
-import { ref } from 'vue'
-const title = ref('Hello123123')
+import request from '@/services/utils/request';
 
-const userStore = useUserStore()
+// import { useUserStore } from '@/store';
+// import { ref } from 'vue'
+// const title = ref('Hello123123')
+
+// const userStore = useUserStore()
+
+const onClick = () => {
+  request.get('/topics', {
+    page: 1,
+    limit: 2
+  }).then(res => {
+    console.log('res', res);
+
+  })
+}
 </script>
 
 <style>
