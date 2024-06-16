@@ -13,11 +13,14 @@
 </template>
 
 <script setup lang="ts">
- const {safeAreaInsets}=uni.getSystemInfoSync()
 const onClick = () => {
-  console.log(safeAreaInsets);
+  uni.navigateTo({
+    url:'/pages/detail/index',
+  })
   
 }
+
+
 </script>
 
 <style>
